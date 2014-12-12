@@ -30,19 +30,23 @@ public class MainActivity extends Activity {
 	public boolean onTouchEvent(MotionEvent evento)
 	{
 		int accion = MotionEventCompat.getActionMasked(evento);
-		float ejex = evento.getX(evento.getPointerId(0));
-		
+		//float ejex = evento.getX(evento.getPointerId(0));
+		View vista_actual = findViewById(R.id.fondo);
+
 		switch(accion){
 			case(MotionEvent.ACTION_DOWN):
-				Log.d(DEBUG_TAG,"La accion fue DOWN");
-				Log.d(COORD_TAG, Float.toString(ejex));
+				vista_actual.setBackgroundColor(getResources().getColor(R.color.encendido));
+				//Log.d(DEBUG_TAG,"La accion fue DOWN");
+				//Log.d(COORD_TAG, Float.toString(ejex));
 				return true;
 			case (MotionEvent.ACTION_MOVE) :
-	            Log.d(DEBUG_TAG,"La accion fue MOVE");
+				vista_actual.setBackgroundColor(getResources().getColor(R.color.encendido));
+	            //Log.d(DEBUG_TAG,"La accion fue MOVE");
 	            return true;
 			case(MotionEvent.ACTION_UP):
-				Log.d(DEBUG_TAG,"La accion fue UP");
-				Log.d(COORD_TAG, Float.toString(ejex));
+				vista_actual.setBackgroundColor(getResources().getColor(R.color.apagado));
+				//Log.d(DEBUG_TAG,"La accion fue UP");
+				//Log.d(COORD_TAG, Float.toString(ejex));
 				return true;
 		}
 		/*if(evento.getAction() == MotionEvent.ACTION_DOWN)

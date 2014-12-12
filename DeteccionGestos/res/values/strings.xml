@@ -2,8 +2,5 @@
 <resources>
 
     <string name="app_name">DeteccionGestos</string>
-	<color name="encencido">#F2F5A9</color>
-	<color name="apagado">#424242</color>
-	
 
 </resources>

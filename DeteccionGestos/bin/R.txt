@@ -211,7 +211,7 @@ int color dim_foreground_disabled_material_dark 0x7f06001c
 int color dim_foreground_disabled_material_light 0x7f06001d
 int color dim_foreground_material_dark 0x7f06001a
 int color dim_foreground_material_light 0x7f06001b
-int color encencido 0x7f060031
+int color encendido 0x7f060031
 int color highlighted_text_material_dark 0x7f060020
 int color highlighted_text_material_light 0x7f060021
 int color hint_foreground_material_dark 0x7f06001e
