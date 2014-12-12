@@ -13,6 +13,8 @@ public class MainActivity extends Activity {
 
 	private static final String DEBUG_TAG = "SalidaEvento";
 	private static final String COORD_TAG = "Coordenadas";
+	float x_inicial, y_inicial, x_actual, y_final;
+	boolean correcto = true;
 
 	
 	@Override
@@ -35,26 +37,40 @@ public class MainActivity extends Activity {
 
 		switch(accion){
 			case(MotionEvent.ACTION_DOWN):
-				vista_actual.setBackgroundColor(getResources().getColor(R.color.encendido));
+				x_inicial = evento.getX(evento.getPointerId(0));
+				y_inicial = evento.getY(evento.getPointerId(0));
+				correcto = true;
+				//vista_actual.setBackgroundColor(getResources().getColor(R.color.encendido));
 				//Log.d(DEBUG_TAG,"La accion fue DOWN");
 				//Log.d(COORD_TAG, Float.toString(ejex));
-				return true;
 			case (MotionEvent.ACTION_MOVE) :
-				vista_actual.setBackgroundColor(getResources().getColor(R.color.encendido));
+				x_actual = evento.getX(evento.getPointerId(0));
+				if(x_actual>=x_inicial+50 || x_actual <= x_inicial-50)
+					correcto = false;
+				
+				if(correcto)
+					Log.d(DEBUG_TAG,"Correcto.");
+				else
+					Log.d(DEBUG_TAG,"No-Correcto.");
+				//vista_actual.setBackgroundColor(getResources().getColor(R.color.encendido));
 	            //Log.d(DEBUG_TAG,"La accion fue MOVE");
-	            return true;
 			case(MotionEvent.ACTION_UP):
-				vista_actual.setBackgroundColor(getResources().getColor(R.color.apagado));
+				
+				if(correcto){
+					
+					y_final = evento.getY(evento.getPointerId(0));
+
+					if(y_final >= y_inicial+200)
+						vista_actual.setBackgroundColor(getResources().getColor(R.color.encendido));
+				
+					if(y_final <= y_inicial-200)
+						vista_actual.setBackgroundColor(getResources().getColor(R.color.apagado));
+				}
+				
 				//Log.d(DEBUG_TAG,"La accion fue UP");
 				//Log.d(COORD_TAG, Float.toString(ejex));
-				return true;
 		}
-		/*if(evento.getAction() == MotionEvent.ACTION_DOWN)
-		{
-			View capa = findViewById(R.id.fondo);
-			capa.setBackgroundResource(getResources().getColor(R.color.encencido));
-		}*/
-			
+
 		return true;
 	}
 	
