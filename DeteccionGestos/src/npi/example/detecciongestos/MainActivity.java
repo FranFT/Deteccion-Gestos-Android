@@ -2,8 +2,8 @@ package npi.example.detecciongestos;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v4.view.MotionEventCompat;
+import android.view.MotionEvent;
 
 public class MainActivity extends Activity {
 
@@ -12,4 +12,21 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	}
+	
+	
+	/*
+	 * Función que captura los eventos táctiles de la pantalla.
+	 * @see android.app.Activity#onTouchEvent(android.view.MotionEvent)
+	 */
+	@Override
+	public boolean onTouchEvent(MotionEvent evento)
+	{
+		int accion = MotionEventCompat.getActionMasked(evento);
+		
+		switch(accion){
+		
+		}
+		return true;
+	}
+	
 }
