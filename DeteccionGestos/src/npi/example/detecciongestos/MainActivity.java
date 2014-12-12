@@ -7,9 +7,13 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+
+
 public class MainActivity extends Activity {
 
 	private static final String DEBUG_TAG = "SalidaEvento";
+	private static final String COORD_TAG = "Coordenadas";
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +30,19 @@ public class MainActivity extends Activity {
 	public boolean onTouchEvent(MotionEvent evento)
 	{
 		int accion = MotionEventCompat.getActionMasked(evento);
+		float ejex = evento.getX(evento.getPointerId(0));
 		
 		switch(accion){
 			case(MotionEvent.ACTION_DOWN):
 				Log.d(DEBUG_TAG,"La accion fue DOWN");
+				Log.d(COORD_TAG, Float.toString(ejex));
 				return true;
 			case (MotionEvent.ACTION_MOVE) :
 	            Log.d(DEBUG_TAG,"La accion fue MOVE");
 	            return true;
 			case(MotionEvent.ACTION_UP):
 				Log.d(DEBUG_TAG,"La accion fue UP");
+				Log.d(COORD_TAG, Float.toString(ejex));
 				return true;
 		}
 		/*if(evento.getAction() == MotionEvent.ACTION_DOWN)
