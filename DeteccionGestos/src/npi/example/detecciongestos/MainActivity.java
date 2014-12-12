@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
+import android.graphics.Color;
 
 public class MainActivity extends Activity {
 
@@ -23,9 +24,7 @@ public class MainActivity extends Activity {
 	{
 		int accion = MotionEventCompat.getActionMasked(evento);
 		
-		switch(accion){
 		
-		}
 		return true;
 	}
 	
