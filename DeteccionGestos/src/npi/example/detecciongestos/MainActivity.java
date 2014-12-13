@@ -6,6 +6,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 
 
@@ -24,6 +25,9 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//ImageView apagado = (ImageView) findViewById(R.id.off);
+		//ImageView encendido = (ImageView) findViewById(R.id.on);
+
 	}
 	
 	
@@ -85,11 +89,17 @@ public class MainActivity extends Activity {
 					// Me aseguro de que la linea recta ha sido lo suficientemente larga.
 					// Dependiendo de la dirección, se visualizará la acción de encender
 					// o apagar la luz.
-					if(y_final >= y_inicial+200)
+					if(y_final >= y_inicial+200){
 						vista_actual.setBackgroundColor(getResources().getColor(R.color.encendido));
+						ImageView interruptor = (ImageView) findViewById(R.id.interruptor);
+						interruptor.setImageResource(R.drawable.on);
+					}
 				
-					if(y_final <= y_inicial-200)
+					if(y_final <= y_inicial-200){
 						vista_actual.setBackgroundColor(getResources().getColor(R.color.apagado));
+						ImageView interruptor = (ImageView) findViewById(R.id.interruptor);
+						interruptor.setImageResource(R.drawable.off);
+					}
 				}
 		}
 
